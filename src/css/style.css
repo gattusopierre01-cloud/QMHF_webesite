@@ -366,16 +366,7 @@ a {
     text-align: center;
     color: var(--light-text);
     overflow: hidden;
-}
-
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 /* Update the hero section overlay to make text more visible */

@@ -1,3 +1,11 @@
+# Large files
+*.mp4
+*.mov
+*.avi
+*.mkv
+videos/
+src/videos/
+
 # Dependencies
 node_modules/
 npm-debug.log*
