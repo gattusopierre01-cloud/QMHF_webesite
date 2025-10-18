@@ -1,0 +1,26 @@
+# GitHub Pages Configuration
+# This file configures GitHub Pages deployment
+
+# Base URL for GitHub Pages (replace with your actual repository name)
+baseurl: "/qmhf-website" # Change this to your repository name
+url: "https://yourusername.github.io" # Change this to your GitHub username
+
+# GitHub Pages specific settings
+github_pages:
+  enabled: true
+  source: "dist" # Deploy from dist directory
+
+# Build settings
+build:
+  command: "npm run build:github-pages"
+  directory: "dist"
+
+# Custom domain (optional)
+# cname: "qmhf.org"
+
+# Security headers for GitHub Pages
+security:
+  headers:
+    - "X-Frame-Options: SAMEORIGIN"
+    - "X-Content-Type-Options: nosniff"
+    - "X-XSS-Protection: 1; mode=block"

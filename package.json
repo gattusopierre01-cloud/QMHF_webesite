@@ -1,0 +1,62 @@
+{
+  "name": "qmhf-website",
+  "version": "1.0.0",
+  "description": "Queen Mary Hedge Fund Official Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npm run build:dev && npm run serve:dev",
+    "build:dev": "npm run clean && npm run copy:assets && npm run build:css:dev && npm run build:js:dev",
+    "build:prod": "npm run clean && npm run copy:assets && npm run build:css:prod && npm run build:js:prod && npm run minify:html",
+    "serve:dev": "python3 -m http.server 8080",
+    "serve:prod": "python3 -m http.server 8081",
+    "deploy:staging": "npm run build:dev && npm run serve:dev",
+    "deploy:production": "npm run build:prod && npm run serve:prod",
+    "clean": "rm -rf dist/",
+    "copy:assets": "mkdir -p dist && cp -r src/images dist/ 2>/dev/null || mkdir -p dist/images && cp -r src/videos dist/ 2>/dev/null || mkdir -p dist/videos",
+    "build:css:dev": "mkdir -p dist/css && cp src/css/*.css dist/css/",
+    "build:css:prod": "mkdir -p dist/css && npm run minify:css",
+    "build:js:dev": "mkdir -p dist/js && cp src/js/*.js dist/js/",
+    "build:js:prod": "mkdir -p dist/js && npm run minify:js",
+    "minify:css": "cleancss -o dist/css/style.min.css src/css/style.css && cleancss -o dist/css/animations.min.css src/css/animations.css",
+    "minify:js": "terser src/js/main.js -o dist/js/main.min.js -c -m",
+    "build:github-pages": "npm run clean && npm run copy:assets && npm run build:css:prod && npm run build:js:prod && npm run minify:html:github-pages",
+    "minify:html:github-pages": "html-minifier-terser --input-dir src --output-dir dist --file-ext html --collapse-whitespace --remove-comments --minify-css --minify-js --process-conditional-comments",
+    "test": "npm run lint:check && npm run validate:html:check",
+    "lint": "eslint src/js/*.js --fix",
+    "lint:check": "eslint src/js/*.js || echo 'Linting issues found - run npm run lint to fix'",
+    "validate:html": "html-validate src/**/*.html",
+    "validate:html:check": "html-validate src/**/*.html || echo 'HTML validation issues found'",
+    "watch": "npm run build:dev && npm run serve:dev & chokidar 'src/**/*' -c 'npm run build:dev'",
+    "backup": "tar -czf backup-$(date +%Y%m%d-%H%M%S).tar.gz src/",
+    "restore": "echo 'Usage: npm run restore <backup-file.tar.gz>'"
+  },
+  "keywords": [
+    "hedge-fund",
+    "finance",
+    "student-society",
+    "queen-mary",
+    "website"
+  ],
+  "author": "Queen Mary Hedge Fund",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.19.4",
+    "html-minifier-terser": "^7.2.0",
+    "eslint": "^8.50.0",
+    "html-validate": "^8.7.4",
+    "chokidar-cli": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qmhf/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qmhf/website/issues"
+  },
+  "homepage": "https://qmhf.org"
+}

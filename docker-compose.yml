@@ -1,0 +1,53 @@
+# Docker Compose for QMHF Website
+version: "3.8"
+
+services:
+  # Development environment
+  qmhf-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/app/src
+      - ./config/development.env:/etc/nginx/env.conf
+    environment:
+      - NODE_ENV=development
+    command: npm run serve:dev
+
+  # Production environment
+  qmhf-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    volumes:
+      - ./config/production.env:/etc/nginx/env.conf
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Nginx reverse proxy (optional)
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - qmhf-prod
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge

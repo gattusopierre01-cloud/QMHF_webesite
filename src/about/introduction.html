@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: url('../images/about-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .intro-section {
+            padding: 100px 0;
+        }
+        
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .intro-text h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .intro-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .values-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 992px) {
+            .intro-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">QMHF</a>
+            </div>
+            <div class="motto">
+                Passion. Precision. Performance.
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="../team/leadership.html">Leadership & Sector Heads</a>
+                            <a href="../team/members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="../research/macro.html">Macro Research</a>
+                            <a href="../research/equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Introduction</h1>
+            <p class="fade-in-delay">Learn about Queen Mary Hedge Fund</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text scroll-fade-left">
+                    <h2>Who We Are</h2>
+                    <p>Queen Mary Hedge Fund is a student-led investment society at Queen Mary University of London. Founded in 2018, we provide a platform for students to gain practical investment experience and develop their financial knowledge.</p>
+                    <p>Our members come from diverse academic backgrounds, bringing unique perspectives to our investment approach. We believe this diversity is our strength, allowing us to analyze markets from multiple angles and identify opportunities others might miss.</p>
+                    <p>Through rigorous research, educational workshops, and networking events, we aim to prepare our members for successful careers in finance and investment management.</p>
+                </div>
+                <div class="intro-image scroll-fade-right">
+                    <img src="../images/intro-image.jpg" alt="Queen Mary Hedge Fund Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Values</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Intellectual Curiosity</h3>
+                    <p>We foster a culture of continuous learning and intellectual exploration. Our members are encouraged to question assumptions, challenge conventional wisdom, and pursue knowledge with passion.</p>
+                </div>
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytical Rigor</h3>
+                    <p>We believe in thorough analysis and data-driven decision making. Our investment process emphasizes rigorous research, quantitative assessment, and critical thinking.</p>
+                </div>
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Spirit</h3>
+                    <p>We value teamwork and the power of diverse perspectives. By working together and sharing ideas openly, we enhance our collective understanding and achieve better results.</p>
+                </div>
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Ethical Conduct</h3>
+                    <p>We uphold the highest standards of integrity and ethics in all our activities. We believe that long-term success in finance requires unwavering commitment to ethical principles.</p>
+                </div>
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace new ideas, technologies, and methodologies. In a rapidly evolving financial landscape, we strive to be at the forefront of innovation in investment analysis and strategy.</p>
+                </div>
+                <div class="value-card scroll-fade-up">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educational Excellence</h3>
+                    <p>We are committed to providing exceptional educational opportunities for our members. Through workshops, guest speakers, and hands-on experience, we develop the next generation of financial leaders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="introduction.html">About Us</a></li>
+                        <li><a href="../team/leadership.html">Our Team</a></li>
+                        <li><a href="../research/macro.html">Research</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

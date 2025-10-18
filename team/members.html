@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Members - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), url('../images/members-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .members-section {
+            padding: 100px 0;
+        }
+        
+        .members-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .members-section .underline {
+            margin-bottom: 50px;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .members-column {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .members-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .members-list {
+            list-style: none;
+        }
+        
+        .members-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .members-list li:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 992px) {
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">QMHF</a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="../about/introduction.html">Introduction</a>
+                            <a href="../about/approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="leadership.html">Leadership & Sector Heads</a>
+                            <a href="members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="../research/macro.html">Macro Research</a>
+                            <a href="../research/equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Current Members</h1>
+            <p class="fade-in-delay">Our talented team of student analysts</p>
+        </div>
+    </header>
+
+    <!-- Members Section -->
+    <section class="members-section">
+        <div class="container">
+            <h2>Our Members</h2>
+            <div class="underline"></div>
+            <div class="members-grid">
+                <div class="members-column scroll-fade-up">
+                    <h3>Analysts</h3>
+                    <ul class="members-list">
+                        <li>Adam Smith</li>
+                        <li>Bella Thompson</li>
+                        <li>Carlos Rodriguez</li>
+                        <li>Diana Lee</li>
+                        <li>Ethan Williams</li>
+                        <li>Fiona Chen</li>
+                        <li>George Patel</li>
+                        <li>Hannah Kim</li>
+                        <li>Ian Johnson</li>
+                        <li>Julia Martinez</li>
+                        <li>Kevin Wong</li>
+                        <li>Lily Taylor</li>
+                        <li>Marcus Brown</li>
+                        <li>Nina Garcia</li>
+                        <li>Oliver Wilson</li>
+                    </ul>
+                </div>
+                <div class="members-column scroll-fade-up">
+                    <h3>Research Associates</h3>
+                    <ul class="members-list">
+                        <li>Priya Sharma</li>
+                        <li>Quinn Anderson</li>
+                        <li>Ryan Miller</li>
+                        <li>Sophia Davis</li>
+                        <li>Thomas Clark</li>
+                        <li>Uma Patel</li>
+                        <li>Victor Nguyen</li>
+                        <li>Wendy Zhang</li>
+                        <li>Xavier Lewis</li>
+                        <li>Yasmin Ali</li>
+                        <li>Zach Moore</li>
+                        <li>Amelia Jackson</li>
+                        <li>Benjamin White</li>
+                        <li>Chloe Harris</li>
+                        <li>Daniel Martin</li>
+                    </ul>
+                </div>
+                <div class="members-column scroll-fade-up">
+                    <h3>Junior Members</h3>
+                    <ul class="members-list">
+                        <li>Elena Rodriguez</li>
+                        <li>Felix Thompson</li>
+                        <li>Grace Wilson</li>
+                        <li>Henry Chen</li>
+                        <li>Isabella Kim</li>
+                        <li>Jacob Patel</li>
+                        <li>Katherine Lee</li>
+                        <li>Leo Johnson</li>
+                        <li>Mia Garcia</li>
+                        <li>Noah Williams</li>
+                        <li>Olivia Brown</li>
+                        <li>Peter Taylor</li>
+                        <li>Rachel Martinez</li>
+                        <li>Samuel Wong</li>
+                        <li>Tiffany Davis</li>
+                        <li>Vincent Clark</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/introduction.html">About Us</a></li>
+                        <li><a href="leadership.html">Our Team</a></li>
+                        <li><a href="../research/macro.html">Research</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

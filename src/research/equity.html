@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Research - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), url('../images/equity-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .research-section {
+            padding: 100px 0;
+        }
+        
+        .research-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .research-section .underline {
+            margin-bottom: 50px;
+        }
+        
+        .research-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            line-height: 1.8;
+        }
+        
+        .research-carousel {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
+            min-width: 300px;
+        }
+        
+        .research-card {
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .research-card:hover .research-image img {
+            transform: scale(1.05);
+        }
+        
+        .research-info {
+            padding: 20px;
+        }
+        
+        .research-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .research-info .date {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .research-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .carousel-controls button {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-controls button:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        @media (max-width: 992px) {
+            .carousel-slide {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-slide {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+
+        /* Terminal Animation Styles */
+        .terminal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            transition: opacity 0.5s ease;
+        }
+        
+        .terminal-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .terminal-screen {
+            width: 90%;
+            max-width: 900px;
+            height: 80%;
+            max-height: 600px;
+            background-color: #000;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .terminal-header {
+            height: 30px;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        .terminal-controls {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .terminal-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .terminal-circle.red { background-color: #ff5f56; }
+        .terminal-circle.yellow { background-color: #ffbd2e; }
+        .terminal-circle.green { background-color: #27c93f; }
+        
+        .terminal-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .terminal-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .terminal-line {
+            height: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terminal-line::after {
+            content: '|';
+            position: absolute;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .terminal-ticker {
+            margin: 30px 0;
+            height: 30px;
+            background-color: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .ticker-track {
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            padding-right: 50px;
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            padding: 5px 15px;
+            border-right: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .ticker-symbol {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .ticker-price {
+            margin-right: 5px;
+        }
+        
+        .ticker-change.positive {
+            color: #4CAF50;
+        }
+        
+        .ticker-change.negative {
+            color: #F44336;
+        }
+        
+        .terminal-progress {
+            height: 4px;
+            background-color: rgba(0, 255, 0, 0.1);
+            border-radius: 2px;
+            margin-top: auto;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #00ff00;
+            transition: width 2s linear;
+        }
+        
+        /* Flicker animation */
+        .flicker {
+            animation: flicker 0.3s ease-in-out;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            25% { opacity: 0.8; }
+            50% { opacity: 0.6; }
+            75% { opacity: 0.9; }
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #ff00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 65px, 0); }
+            5% { clip: rect(52px, 9999px, 77px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(26px, 9999px, 55px, 0); }
+            95% { clip: rect(42px, 9999px, 97px, 0); }
+            100% { clip: rect(38px, 9999px, 49px, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add this right after the opening <body> tag -->
+    <div class="terminal-overlay">
+        <div class="terminal-screen">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="terminal-circle red"></span>
+                    <span class="terminal-circle yellow"></span>
+                    <span class="terminal-circle green"></span>
+                </div>
+                <div class="terminal-title">QMHF EQUITY RESEARCH TERMINAL</div>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-line" id="line1"></div>
+                <div class="terminal-line" id="line2"></div>
+                <div class="terminal-line" id="line3"></div>
+                <div class="terminal-line" id="line4"></div>
+                <div class="terminal-ticker">
+                    <div class="ticker-track">
+                        <div class="ticker-content">
+                            <!-- Stock data will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this for the sound effects -->
+    <audio id="terminal-beep" preload="auto">
+        <source src="../sounds/terminal-beep.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="terminal-typing" preload="auto">
+        <source src="../sounds/terminal-typing.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">QMHF</a>
+            </div>
+            <div class="motto">
+                Passion. Precision. Performance.
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="../about/introduction.html">Introduction</a>
+                            <a href="../about/approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="../team/leadership.html">Leadership & Sector Heads</a>
+                            <a href="../team/members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="macro.html">Macro Research</a>
+                            <a href="equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Equity Research</h1>
+            <p class="fade-in-delay">In-depth analysis of public companies</p>
+        </div>
+    </header>
+
+    <!-- Research Section -->
+    <section class="research-section">
+        <div class="container">
+            <h2>Equity Research Reports</h2>
+            <div class="underline"></div>
+            <div class="research-intro scroll-fade-up">
+                <p>Our equity research team conducts thorough fundamental analysis of public companies across various sectors. We focus on identifying undervalued opportunities with strong growth potential and solid fundamentals. Our reports include detailed financial analysis, competitive positioning assessment, and investment recommendations.</p>
+            </div>
+            
+            <div class="research-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/equity1.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Tech Sector: AI Leaders Analysis</h3>
+                                    <p class="date">October 20, 2023</p>
+                                    <p>Comprehensive analysis of leading companies in the artificial intelligence space, with focus on competitive advantages and growth trajectories.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/equity2.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Healthcare: Biotech Innovation</h3>
+                                    <p class="date">October 5, 2023</p>
+                                    <p>Analysis of emerging biotech companies with promising drug pipelines and breakthrough technologies in the healthcare sector.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/equity3.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Financial Services: Digital Banking</h3>
+                                    <p class="date">September 18, 2023</p>
+                                    <p>Evaluation of digital banking platforms and fintech disruptors challenging traditional financial institutions.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/equity4.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Consumer Goods: Sustainable Brands</h3>
+                                    <p class="date">September 2, 2023</p>
+                                    <p>Analysis of consumer companies leading in sustainability initiatives and their impact on brand value and financial performance.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/equity5.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Energy Transition: Renewable Leaders</h3>
+                                    <p class="date">August 15, 2023</p>
+                                    <p>Detailed analysis of companies at the forefront of the energy transition, focusing on renewable energy technologies and infrastructure.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/introduction.html">About Us</a></li>
+                        <li><a href="../team/leadership.html">Our Team</a></li>
+                        <li><a href="macro.html">Research</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const nextButton = document.querySelector('.next-btn');
+            const prevButton = document.querySelector('.prev-btn');
+            
+            let slideWidth = slides[0].getBoundingClientRect().width;
+            let slideIndex = 0;
+            const slidesToShow = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+            const slidesToScroll = 1;
+            
+            // Set slide positions
+            const setSlidePosition = () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                slides.forEach((slide, index) => {
+                    slide.style.left = slideWidth * index + 'px';
+                });
+            };
+            
+            setSlidePosition();
+            
+            // Update slide position
+            const moveToSlide = (currentIndex) => {
+                track.style.transform = 'translateX(-' + slides[currentIndex].style.left + ')';
+                slideIndex = currentIndex;
+            };
+            
+            // Next button click
+            nextButton.addEventListener('click', () => {
+                const nextIndex = slideIndex + slidesToScroll;
+                if (nextIndex < slides.length - slidesToShow + 1) {
+                    moveToSlide(nextIndex);
+                } else {
+                    moveToSlide(0);
+                }
+            });
+            
+            // Previous button click
+            prevButton.addEventListener('click', () => {
+                const prevIndex = slideIndex - slidesToScroll;
+                if (prevIndex >= 0) {
+                    moveToSlide(prevIndex);
+                } else {
+                    moveToSlide(slides.length - slidesToShow);
+                }
+            });
+            
+            // Window resize
+            window.addEventListener('resize', () => {
+                setSlidePosition();
+                moveToSlide(slideIndex);
+            });
+        });
+
+        // Terminal boot-up animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminalOverlay = document.querySelector('.terminal-overlay');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+            const line4 = document.getElementById('line4');
+            const progressBar = document.querySelector('.progress-bar');
+            const tickerContent = document.querySelector('.ticker-content');
+            const terminalBeep = document.getElementById('terminal-beep');
+            const terminalTyping = document.getElementById('terminal-typing');
+            
+            // Stock data for ticker
+            const stocks = [
+                { symbol: 'AAPL', price: '189.35', change: '+0.76', volume: '42.3M' },
+                { symbol: 'MSFT', price: '412.65', change: '+1.54', volume: '28.7M' },
+                { symbol: 'GOOGL', price: '142.89', change: '+0.32', volume: '15.2M' },
+                { symbol: 'AMZN', price: '178.22', change: '-0.87', volume: '31.5M' },
+                { symbol: 'TSLA', price: '207.15', change: '-1.22', volume: '56.8M' },
+                { symbol: 'META', price: '472.10', change: '+3.45', volume: '19.3M' },
+                { symbol: 'NVDA', price: '924.75', change: '+12.38', volume: '47.1M' },
+                { symbol: 'QMHF', price: '132.44', change: '+2.03', volume: '8.5M' },
+                { symbol: 'JPM', price: '187.56', change: '-0.92', volume: '12.7M' },
+                { symbol: 'BAC', price: '37.21', change: '-0.45', volume: '22.4M' }
+            ];
+            
+            // Populate ticker with stock data
+            stocks.forEach(stock => {
+                const isPositive = stock.change.startsWith('+');
+                const tickerItem = document.createElement('span');
+                tickerItem.className = 'ticker-item';
+                tickerItem.innerHTML = `
+                    <span class="ticker-symbol">${stock.symbol}</span>
+                    <span class="ticker-price">${stock.price}</span>
+                    <span class="ticker-change ${isPositive ? 'positive' : 'negative'}">${stock.change}</span>
+                    <span class="ticker-volume">${stock.volume}</span>
+                `;
+                tickerContent.appendChild(tickerItem);
+            });
+            
+            // Clone ticker content for continuous scrolling
+            tickerContent.innerHTML += tickerContent.innerHTML;
+            
+            // Add flicker effect
+            setTimeout(() => {
+                terminalOverlay.classList.add('flicker');
+                if (terminalBeep) terminalBeep.play();
+                
+                setTimeout(() => {
+                    terminalOverlay.classList.remove('flicker');
+                    startTerminal();
+                }, 300);
+            }, 500);
+            
+            function startTerminal() {
+                // Start progress bar
+                progressBar.style.width = '100%';
+                
+                // Type text with delay
+                if (terminalTyping) terminalTyping.play();
+                
+                typeText(line1, 'Initializing QMHF Equity Research Terminal...', 30, () => {
+                    typeText(line2, 'Fetching market data from global exchanges...', 30, () => {
+                        typeText(line3, 'Analyzing sector performance and volatility metrics...', 30, () => {
+                            typeText(line4, 'Loading Equity Research Dashboard...', 30, () => {
+                                // Complete the boot sequence
+                                setTimeout(() => {
+                                    terminalOverlay.classList.add('fade-out');
+                                    setTimeout(() => {
+                                        terminalOverlay.style.display = 'none';
+                                        
+                                        // Add fade-in animations to page content
+                                        document.querySelectorAll('.research-card').forEach((card, index) => {
+                                            card.classList.add('fade-in');
+                                            card.style.animationDelay = `${0.1 * index}s`;
+                                        });
+                                    }, 500);
+                                }, 500);
+                            });
+                        });
+                    });
+                });
+            }
+            
+            function typeText(element, text, speed, callback) {
+                let i = 0;
+                function typing() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typing, speed);
+                    } else if (callback) {
+                        setTimeout(callback, 300);
+                    }
+                }
+                typing();
+            }
+            
+            // Add event listeners to links pointing to equity.html
+            document.querySelectorAll('a[href*="equity.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only if we're not already on the equity page
+                    if (!window.location.href.includes('equity.html')) {
+                        e.preventDefault();
+                        document.body.appendChild(terminalOverlay);
+                        
+                        // Navigate to the page after animation
+                        setTimeout(() => {
+                            window.location.href = this.href;
+                        }, 3000);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

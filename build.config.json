@@ -1,0 +1,53 @@
+{
+  "build": {
+    "development": {
+      "minify": false,
+      "sourcemaps": true,
+      "compress": false,
+      "optimize": false,
+      "debug": true
+    },
+    "production": {
+      "minify": true,
+      "sourcemaps": false,
+      "compress": true,
+      "optimize": true,
+      "debug": false
+    }
+  },
+  "paths": {
+    "src": "src/",
+    "dist": "dist/",
+    "assets": "src/assets/",
+    "css": "src/css/",
+    "js": "src/js/",
+    "images": "src/images/",
+    "videos": "src/videos/"
+  },
+  "htmlMinifier": {
+    "collapseWhitespace": true,
+    "removeComments": true,
+    "minifyCSS": true,
+    "minifyJS": true,
+    "removeAttributeQuotes": true,
+    "removeRedundantAttributes": true,
+    "removeScriptTypeAttributes": true,
+    "removeStyleLinkTypeAttributes": true,
+    "useShortDoctype": true
+  },
+  "cssMinifier": {
+    "level": 2,
+    "format": "beautify"
+  },
+  "jsMinifier": {
+    "compress": {
+      "drop_console": true,
+      "drop_debugger": true,
+      "pure_funcs": ["console.log", "console.info", "console.debug"]
+    },
+    "mangle": true,
+    "format": {
+      "comments": false
+    }
+  }
+}

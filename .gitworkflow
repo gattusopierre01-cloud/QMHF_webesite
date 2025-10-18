@@ -1,0 +1,66 @@
+# Git Workflow Configuration for QMHF Website
+
+## Branch Strategy
+
+### Main Branches
+
+- `main` - Production-ready code
+- `develop` - Integration branch for features
+- `staging` - Pre-production testing
+
+### Feature Branches
+
+- `feature/feature-name` - New features
+- `bugfix/bug-description` - Bug fixes
+- `hotfix/urgent-fix` - Critical production fixes
+
+## Workflow Rules
+
+### Development Process
+
+1. Create feature branch from `develop`
+2. Make changes and commit with conventional commits
+3. Push to remote and create Pull Request
+4. Code review and testing
+5. Merge to `develop`
+6. Deploy to staging for testing
+7. Merge to `main` for production
+
+### Commit Message Format
+
+```
+type(scope): description
+
+[optional body]
+
+[optional footer]
+```
+
+Types:
+
+- feat: New feature
+- fix: Bug fix
+- docs: Documentation changes
+- style: Code style changes
+- refactor: Code refactoring
+- test: Adding tests
+- chore: Maintenance tasks
+
+### Branch Protection Rules
+
+- Require pull request reviews
+- Require status checks to pass
+- Require branches to be up to date
+- Restrict pushes to main branch
+
+## Environment Mapping
+
+- `main` → Production
+- `staging` → Staging
+- `develop` → Development
+
+## Deployment Triggers
+
+- Push to `main` → Auto-deploy to production
+- Push to `staging` → Auto-deploy to staging
+- Push to `develop` → Auto-deploy to development

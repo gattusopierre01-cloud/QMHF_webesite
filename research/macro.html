@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Research - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), url('../images/macro-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .research-section {
+            padding: 100px 0;
+        }
+        
+        .research-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .research-section .underline {
+            margin-bottom: 50px;
+        }
+        
+        .research-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            line-height: 1.8;
+        }
+        
+        .research-carousel {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
+            min-width: 300px;
+        }
+        
+        .research-card {
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .research-card:hover .research-image img {
+            transform: scale(1.05);
+        }
+        
+        .research-info {
+            padding: 20px;
+        }
+        
+        .research-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .research-info .date {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .research-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .carousel-controls button {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-controls button:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        @media (max-width: 992px) {
+            .carousel-slide {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-slide {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">QMHF</a>
+            </div>
+            <div class="motto">
+                Passion. Precision. Performance.
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="../about/introduction.html">Introduction</a>
+                            <a href="../about/approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="../team/leadership.html">Leadership & Sector Heads</a>
+                            <a href="../team/members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="macro.html">Macro Research</a>
+                            <a href="equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Macro Research</h1>
+            <p class="fade-in-delay">Our analysis of global economic trends</p>
+        </div>
+    </header>
+
+    <!-- Research Section -->
+    <section class="research-section">
+        <div class="container">
+            <h2>Macroeconomic Research</h2>
+            <div class="underline"></div>
+            <div class="research-intro scroll-fade-up">
+                <p>Our macroeconomic research team analyzes global economic trends, monetary policy, and geopolitical events to identify investment opportunities and risks. We publish regular reports on key economic indicators, central bank actions, and their potential impact on financial markets.</p>
+            </div>
+            
+            <div class="research-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/research1.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Global Inflation Outlook 2023</h3>
+                                    <p class="date">October 15, 2023</p>
+                                    <p>A comprehensive analysis of inflation trends across major economies and their implications for monetary policy and asset prices.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/research2.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Central Bank Policy Divergence</h3>
+                                    <p class="date">September 28, 2023</p>
+                                    <p>Examining the growing divergence in monetary policy approaches between major central banks and the potential market implications.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/research3.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Emerging Markets: Growth Prospects</h3>
+                                    <p class="date">September 10, 2023</p>
+                                    <p>Analysis of economic growth trajectories in key emerging markets, focusing on structural reforms and investment opportunities.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/research4.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Global Supply Chain Resilience</h3>
+                                    <p class="date">August 22, 2023</p>
+                                    <p>Investigating the evolution of global supply chains post-pandemic and the implications for inflation and corporate profitability.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide scroll-fade-up">
+                            <div class="research-card">
+                                <div class="research-image">
+                                    <img src="../images/research5.jpg" alt="Research">
+                                </div>
+                                <div class="research-info">
+                                    <h3>Fiscal Policy Trends in G7 Economies</h3>
+                                    <p class="date">August 5, 2023</p>
+                                    <p>Examining fiscal policy approaches across G7 economies and their implications for sovereign debt markets and economic growth.</p>
+                                    <a href="#" class="text-link">Read Full Report →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/introduction.html">About Us</a></li>
+                        <li><a href="../team/leadership.html">Our Team</a></li>
+                        <li><a href="macro.html">Research</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const nextButton = document.querySelector('.next-btn');
+            const prevButton = document.querySelector('.prev-btn');
+            
+            let slideWidth = slides[0].getBoundingClientRect().width;
+            let slideIndex = 0;
+            const slidesToShow = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+            const slidesToScroll = 1;
+            
+            // Set slide positions
+            const setSlidePosition = () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                slides.forEach((slide, index) => {
+                    slide.style.left = slideWidth * index + 'px';
+                });
+            };
+            
+            setSlidePosition();
+            
+            // Update slide position
+            const moveToSlide = (currentIndex) => {
+                track.style.transform = 'translateX(-' + slides[currentIndex].style.left + ')';
+                slideIndex = currentIndex;
+            };
+            
+            // Next button click
+            nextButton.addEventListener('click', () => {
+                const nextIndex = slideIndex + slidesToScroll;
+                if (nextIndex < slides.length - slidesToShow + 1) {
+                    moveToSlide(nextIndex);
+                } else {
+                    moveToSlide(0);
+                }
+            });
+            
+            // Previous button click
+            prevButton.addEventListener('click', () => {
+                const prevIndex = slideIndex - slidesToScroll;
+                if (prevIndex >= 0) {
+                    moveToSlide(prevIndex);
+                } else {
+                    moveToSlide(slides.length - slidesToShow);
+                }
+            });
+            
+            // Window resize
+            window.addEventListener('resize', () => {
+                setSlidePosition();
+                moveToSlide(slideIndex);
+            });
+        });
+    </script>
+</body>
+</html> 

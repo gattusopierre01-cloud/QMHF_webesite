@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(15, 27, 94, 0.8), rgba(15, 27, 94, 0.8)), url('images/contact-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .contact-section {
+            padding: 100px 0;
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        
+        .contact-option {
+            background-color: var(--light-bg);
+            padding: 35px 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(201, 169, 128, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-option:hover .contact-icon {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(201, 169, 128, 0.4);
+        }
+        
+        .contact-option h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-option p {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(201, 169, 128, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-color);
+            box-shadow: var(--silky-shadow);
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">QMHF</a>
+            </div>
+            <div class="motto">
+                Passion. Precision. Performance.
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="about/introduction.html">Introduction</a>
+                            <a href="about/approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="team/leadership.html">Leadership & Sector Heads</a>
+                            <a href="team/members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="research/macro.html">Macro Research</a>
+                            <a href="research/equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Contact Us</h1>
+            <p class="fade-in-delay">Get in touch with the Queen Mary Hedge Fund team</p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-options">
+                <div class="contact-option scroll-fade-up">
+                    <div class="contact-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Join Us</h3>
+                    <p>Interested in becoming a member of Queen Mary Hedge Fund? We're always looking for talented students to join our team.</p>
+                    <a href="#contact-form" class="btn">Apply Now</a>
+                </div>
+                <div class="contact-option scroll-fade-up">
+                    <div class="contact-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Sponsorship</h3>
+                    <p>Partner with us to support student development and gain exposure to top talent at Queen Mary University.</p>
+                    <a href="#contact-form" class="btn">Partner With Us</a>
+                </div>
+                <div class="contact-option scroll-fade-up">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>General Enquiry</h3>
+                    <p>Have questions about our society or research? We're happy to help with any general inquiries.</p>
+                    <a href="#contact-form" class="btn">Get In Touch</a>
+                </div>
+            </div>
+            
+            <div class="contact-form-container scroll-fade-up" id="contact-form">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" class="form-control" required>
+                            <option value="" selected disabled>Select a subject</option>
+                            <option value="join">Membership Application</option>
+                            <option value="sponsorship">Sponsorship Inquiry</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about/introduction.html">About Us</a></li>
+                        <li><a href="team/leadership.html">Our Team</a></li>
+                        <li><a href="research/macro.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.querySelector('.contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to a server
+                // For now, we'll just show a success message
+                
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+                
+                console.log('Form submitted:', formData);
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message (in a real implementation)
+                alert('Thank you for your message! We will get back to you soon.');
+            });
+            
+            // Smooth scroll to form when clicking on contact option buttons
+            const contactButtons = document.querySelectorAll('.contact-option .btn');
+            
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Set the appropriate subject in the dropdown based on which button was clicked
+                    const buttonText = this.textContent.trim().toLowerCase();
+                    const subjectSelect = document.getElementById('subject');
+                    
+                    if (buttonText.includes('apply')) {
+                        subjectSelect.value = 'join';
+                    } else if (buttonText.includes('partner')) {
+                        subjectSelect.value = 'sponsorship';
+                    } else {
+                        subjectSelect.value = 'general';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

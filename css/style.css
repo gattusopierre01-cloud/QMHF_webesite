@@ -1,0 +1,1015 @@
+/* Base Styles */
+:root {
+    --primary-color: #0f1b5e;
+    --primary-color-light: #0f1b5e;
+    --primary-color-dark: #0f1b5e;
+    --secondary-color: #0f1b5e;
+    --accent-color: #c9a980;
+    --text-color: #333;
+    --light-text: #f9f9f9;
+    --light-bg: #f9f9f9;
+    --dark-bg: #0a1622;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --silky-shadow: 0 5px 15px rgba(15, 27, 94, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    border-radius: 2px;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    box-shadow: var(--silky-shadow);
+    transform: translateY(-2px);
+}
+
+.text-link {
+    color: var(--accent-color);
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.text-link:hover {
+    color: var(--primary-color);
+}
+
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(15, 27, 94, 0.1);
+}
+
+.underline {
+    height: 3px;
+    width: 60px;
+    background-color: var(--accent-color);
+    margin: 0 auto;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    padding: 20px 0;
+    z-index: 1000;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: var(--primary-color);
+    box-shadow: var(--silky-shadow);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f9f9f9;
+    letter-spacing: 1px;
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.nav-links ul li a {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #f9f9f9;
+    padding: 10px 0;
+    letter-spacing: 1.2px;
+    transition: var(--transition);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links ul li a:hover {
+    color: #f9f9f9 !important;
+    opacity: 0.9;
+}
+
+/* Motto Styles */
+.motto {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 500;
+    color: #f9f9f9;
+    letter-spacing: 1.5px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Complete dropdown redesign */
+.dropdown {
+    position: relative;
+}
+
+/* Simple, elegant dropdown indicator */
+.dropdown > a::after {
+    content: '▼';
+    font-size: 10px;
+    margin-left: 6px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
+
+/* Clean, modern dropdown container */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(15, 27, 94, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid rgba(15, 27, 94, 0.1);
+}
+
+/* Specific width for "Our Team" dropdown */
+.nav-links ul li:nth-child(2) .dropdown-content {
+    width: 280px; /* Keep the wider width */
+}
+
+/* Dropdown animation */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* Dropdown items */
+.dropdown-content a {
+    color: var(--primary-color) !important;
+    padding: 12px 15px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(15, 27, 94, 0.05);
+    font-weight: 500;
+    font-size: 15px !important; /* Force consistent font size */
+    font-family: 'Roboto', sans-serif !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Adjust hover effect to prevent overflow */
+.dropdown-content a:hover {
+    background-color: rgba(201, 169, 128, 0.1);
+    color: #c9a980 !important;
+    padding-left: 15px; /* Reduce indent to prevent overflow */
+}
+
+/* Remove specific styling for leadership item and ensure consistent font size */
+.dropdown-content a[href*="leadership"]::before {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Override any conflicting hover styles */
+.nav-links ul li a:hover {
+    color: #f9f9f9 !important; /* Keep navbar items white */
+    opacity: 0.9;
+}
+
+/* Ensure dropdown items don't inherit navbar hover styles */
+.dropdown-content a, 
+.dropdown-content a:hover,
+.dropdown:hover .dropdown-content a {
+    color: #0f1b5e !important; /* Default state - blue text */
+}
+
+.dropdown-content a:hover {
+    color: #c9a980 !important; /* Hover state - gold text */
+}
+
+/* Remove duplicate hover rule */
+.dropdown-content a:hover {
+    background-color: rgba(201, 169, 128, 0.1);
+    color: #c9a980 !important;
+    padding-left: 20px; /* Keep the indent effect */
+}
+
+/* Add icons to dropdown items */
+.dropdown-content a::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+    font-size: 14px;
+    color: var(--accent-color);
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+/* Custom icons for each dropdown item */
+.dropdown-content a[href*="introduction"]::before {
+    content: '\f02d'; /* book icon */
+}
+
+.dropdown-content a[href*="approach"]::before {
+    content: '\f201'; /* chart line icon */
+}
+
+.dropdown-content a[href*="leadership"]::before {
+    content: '\f0c0'; /* users icon */
+}
+
+.dropdown-content a[href*="members"]::before {
+    content: '\f007'; /* user icon */
+}
+
+.dropdown-content a[href*="macro"]::before {
+    content: '\f0ac'; /* globe icon */
+}
+
+.dropdown-content a[href*="equity"]::before {
+    content: '\f200'; /* pie chart icon */
+}
+
+.dropdown-content a[href*="ma"]::before {
+    content: '\f0e8'; /* sitemap icon */
+}
+
+/* Mobile dropdown styles */
+@media (max-width: 768px) {
+    .dropdown > a::after {
+        position: absolute;
+        right: 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: rgba(15, 27, 94, 0.05);
+        border-radius: 4px;
+        margin-top: 5px;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .dropdown-content a {
+        text-align: left;
+        justify-content: flex-start;
+        padding-left: 20px;
+        color: var(--primary-color) !important;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text);
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Update the hero section overlay to make text more visible */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(10, 18, 64, 0.7), rgba(42, 58, 138, 0.7));
+    z-index: -1;
+}
+
+/* Add text shadow to hero content for better readability */
+.hero-content h1, 
+.hero-content p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 
+                 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.hero-content .btn {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* About Preview Section */
+.about-preview {
+    padding: 100px 0;
+    background-color: var(--light-bg);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text, .about-image {
+    flex: 1;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Research Preview Section */
+.research-preview {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.research-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    padding: 20px;
+}
+
+.research-card {
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--silky-shadow);
+}
+
+.research-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.research-info {
+    padding: 20px;
+}
+
+.research-info h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.carousel-controls button {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-controls button:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 70px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a, .footer-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer-links a:hover, .footer-bottom a:hover {
+    color: var(--primary-color);
+}
+
+.footer-subscribe form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.footer-subscribe input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 2px 0 0 2px;
+}
+
+.footer-subscribe button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.footer-subscribe button:hover {
+    background-color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    box-shadow: var(--silky-shadow);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .motto {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--light-bg);
+        flex-direction: column;
+        padding: 80px 40px;
+        transition: var(--transition);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        padding: 12px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a, .nav-links ul li a {
+        color: var(--primary-color) !important;
+        text-shadow: none;
+        width: 100%;
+        display: block;
+    }
+    
+    /* Mobile dropdown improvements */
+    .dropdown > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .dropdown-content {
+        background-color: rgba(15, 27, 94, 0.05);
+        max-height: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 500px;
+    }
+    
+    .dropdown-content a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(15, 27, 94, 0.1);
+    }
+    
+    .dropdown-content a:last-child {
+        border-bottom: none;
+    }
+    
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Video Container Styles */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.video-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.video-container video {
+    width: 80%;
+    height: 80%;
+    max-width: 1200px;
+    object-fit: contain;
+}
+
+.close-video-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.close-video-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Make navbar always visible on homepage */
+body.home-page .navbar {
+    background-color: var(--primary-color);
+    box-shadow: var(--silky-shadow);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Unify blue theme throughout the website */
+.page-header h1,
+.section-header h2,
+.about-content h2, h3,
+.team-info h3,
+.research-card h3,
+.contact-form-container h2,
+.footer-links h4,
+.footer-subscribe h4,
+.footer-social h4 {
+    color: var(--primary-color);
+}
+
+.text-link:hover,
+.nav-links ul li a:hover,
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Fix page header titles */
+.page-header {
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 27, 94, 0.8), rgba(15, 27, 94, 0.7));
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    color: var(--light-text);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.page-header p {
+    color: var(--light-text);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Ensure consistent blue color throughout */
+:root {
+    --primary-color: #0f1b5e;
+    --primary-color-light: #0f1b5e; /* Match primary color */
+    --primary-color-dark: #0f1b5e; /* Match primary color */
+    --secondary-color: #0f1b5e; /* Match primary color */
+    --accent-color: #c9a980;
+    --text-color: #333;
+    --light-text: #f9f9f9;
+    --light-bg: #f9f9f9;
+    --dark-bg: #0a1622;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --silky-shadow: 0 5px 15px rgba(15, 27, 94, 0.3);
+}
+
+/* Fix any hardcoded blue colors */
+.navbar.scrolled,
+body.home-page .navbar,
+.page-header::before {
+    background-color: #0f1b5e;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(201, 169, 128, 0.1);
+    color: var(--accent-color) !important;
+
+}
+
+.dropdown-content {
+    box-shadow: 0 10px 25px rgba(15, 27, 94, 0.15);
+    border: 1px solid rgba(15, 27, 94, 0.1);
+}
+
+/* Ensure all text using blue uses the primary color */
+.section-header h2,
+.about-text h3,
+.about-content h2, 
+.about-content h3,
+.team-info h3,
+.research-card h3,
+.contact-form-container h2,
+.footer-links h4,
+.footer-subscribe h4,
+.footer-social h4,
+.value-card h3,
+.intro-text h2 {
+    color: #0f1b5e;
+}
+
+/* Fix hover states */
+.text-link:hover,
+.footer-links a:hover,
+.btn:hover {
+    color: #f9f9f9;
+    background-color: #0f1b5e;
+}
+
+/* Fix mobile dropdown background */
+@media (max-width: 768px) {
+    .dropdown-content {
+        background-color: rgba(15, 27, 94, 0.05);
+    }
+    
+    .dropdown-content a {
+        border-bottom: 1px solid rgba(15, 27, 94, 0.1);
+    }
+    
+    .nav-links a, 
+    .nav-links ul li a {
+        color: #0f1b5e !important;
+    }
+}
+
+/* Center and resize team images on leadership page */
+.team-section {
+    text-align: center;
+}
+
+/* Make Executive Committee images larger */
+.executive-committee .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Larger grid items */
+    gap: 40px; /* More spacing */
+    margin-bottom: 80px;
+}
+
+.executive-committee .team-card {
+    height: 350px; /* Taller cards */
+    margin: 0 auto;
+    max-width: 300px; /* Control maximum width */
+}
+
+/* Keep Sector Heads images at standard size */
+.sector-heads .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.sector-heads .team-card {
+    height: 300px;
+    margin: 0 auto;
+    max-width: 250px;
+}
+
+/* Center team info text */
+.team-info {
+    text-align: center;
+}
+
+/* Adjust motto for mobile */
+@media (max-width: 768px) {
+    .motto {
+        display: none; /* Hide on mobile to save space */
+    }
+    
+    /* Alternative: keep it visible but smaller
+    .motto {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    */
+}
+
+/* Research Terminal Responsive Styles */
+@media (max-width: 768px) {
+    .research-module {
+        position: relative !important;
+        width: 90% !important;
+        height: auto !important;
+        min-height: 250px;
+        margin: 20px auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .terminal-container {
+        overflow-y: auto;
+    }
+    
+    .visualization-area {
+        min-height: 100vh;
+    }
+    
+    .data-node, .connection-line {
+        display: none;
+    }
+    
+    .status-bar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .status-item {
+        margin: 5px 10px;
+    }
+}
+
+/* Add smooth transitions for research links */
+a[href*="research"] {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a[href*="research"]:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(201, 169, 128, 0.3);
+}

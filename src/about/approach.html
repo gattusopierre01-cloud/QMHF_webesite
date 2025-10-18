@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Approach - Queen Mary Hedge Fund</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(15, 27, 94, 0.8), rgba(15, 27, 94, 0.7)), url('../images/approach-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .approach-section {
+            padding: 100px 0;
+        }
+        
+        .approach-image {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        
+        .approach-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .approach-content h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .approach-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .process-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .step-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 992px) {
+            .approach-content {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">QMHF</a>
+            </div>
+            <div class="motto">
+                Passion. Precision. Performance.
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="approach.html">Our Approach</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Our Team</a>
+                        <div class="dropdown-content">
+                            <a href="../team/leadership.html">Leadership & Sector Heads</a>
+                            <a href="../team/members.html">Current Members</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Research</a>
+                        <div class="dropdown-content">
+                            <a href="../research/macro.html">Macro Research</a>
+                            <a href="../research/equity.html">Equity Research</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Our Approach</h1>
+            <p class="fade-in-delay">How we analyze and invest in the markets</p>
+        </div>
+    </header>
+
+    <!-- Approach Section -->
+    <section class="approach-section">
+        <div class="container">
+            <div class="approach-image scroll-fade-up">
+                <img src="../images/img1.jpg" alt="Our Approach">
+            </div>
+            <div class="approach-content">
+                <h2 class="scroll-fade-up">Investment Philosophy</h2>
+                <p class="scroll-fade-up">At Queen Mary Hedge Fund, we believe in a disciplined, research-driven approach to investing. Our investment philosophy is built on the foundation of thorough fundamental analysis, complemented by macroeconomic insights and quantitative techniques.</p>
+                <p class="scroll-fade-up">We focus on identifying mispriced assets across various markets, seeking to generate consistent returns while managing risk. Our approach combines both top-down and bottom-up methodologies, allowing us to develop a comprehensive view of potential investments.</p>
+                <p class="scroll-fade-up">Rather than following market trends, we conduct independent research to form our own investment theses. This contrarian mindset often leads us to opportunities overlooked by the broader market.</p>
+                
+                <h2 class="scroll-fade-up">Risk Management</h2>
+                <p class="scroll-fade-up">Risk management is at the core of our investment process. We employ a multi-faceted approach to risk, considering not only market volatility but also liquidity, concentration, and correlation risks.</p>
+                <p class="scroll-fade-up">Our portfolio construction process emphasizes diversification across sectors, geographies, and asset classes. We continuously monitor our positions and adjust our allocations based on changing market conditions and risk parameters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header scroll-fade-up">
+                <h2>Our Investment Process</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="process-steps">
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">1</div>
+                    <h3>Idea Generation</h3>
+                    <p>We source investment ideas through a combination of screening tools, industry research, and team discussions. Our diverse academic backgrounds allow us to approach problems from multiple perspectives.</p>
+                </div>
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">2</div>
+                    <h3>Fundamental Analysis</h3>
+                    <p>Each potential investment undergoes rigorous fundamental analysis, including financial statement review, competitive positioning assessment, and management evaluation.</p>
+                </div>
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">3</div>
+                    <h3>Valuation</h3>
+                    <p>We employ multiple valuation methodologies to determine intrinsic value, including discounted cash flow analysis, comparable company analysis, and scenario modeling.</p>
+                </div>
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">4</div>
+                    <h3>Portfolio Construction</h3>
+                    <p>Investments are sized based on conviction level, risk parameters, and correlation with existing positions. We maintain a disciplined approach to position sizing and sector allocation.</p>
+                </div>
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">5</div>
+                    <h3>Monitoring & Review</h3>
+                    <p>All positions are continuously monitored for changes in fundamentals or valuation. We conduct regular portfolio reviews to ensure alignment with our investment theses.</p>
+                </div>
+                <div class="step-card scroll-fade-up">
+                    <div class="step-number">6</div>
+                    <h3>Exit Strategy</h3>
+                    <p>Each investment includes a clearly defined exit strategy, with specific price targets and catalysts identified. We maintain discipline in exiting positions when our thesis is realized or invalidated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>QMHF</h3>
+                    <p>Queen Mary Hedge Fund</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="introduction.html">About Us</a></li>
+                        <li><a href="../team/leadership.html">Our Team</a></li>
+                        <li><a href="../research/macro.html">Research</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Queen Mary Hedge Fund. All rights reserved.</p>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 
